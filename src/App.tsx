@@ -1,21 +1,22 @@
 import React from 'react';
-import image from './assets/image 2.png';
-import logo from './assets/compass-logo.png';
 import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Register } from './routes';
 
+
+/* <div className="page">
+       
+*/
 
 function App() {
   return (
-    <div className="page">
-       
-      <div className="text-container">
-          <h1>Welcome,</h1>
-          <p>Please, register to continue</p>
-      </div>
-       <div className="image-container">
-        <img src={image} className="image" alt="neon-notebook" />
-       </div>
-    </div>
+   <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Register />}>
+        <Route index element={<Register />} />
+        </ Route>
+    </Routes>
+   </BrowserRouter>
     );
   }
   
