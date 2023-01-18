@@ -1,4 +1,3 @@
-import * as S from '../../style';
 type buttonProps = {
     buttonName: string
 };
@@ -6,8 +5,8 @@ type buttonProps = {
 
 export const Button = ({buttonName}: buttonProps) => {
     return (
-        <S.registerButton>
+        <button>
             {buttonName}
-        </S.registerButton>
+        </button>
     )
 }

@@ -1,29 +1,27 @@
-import { ChangeEvent } from 'react';
-import * as S from '../../style';
+import React from "react";
+import * as S from "./style";
+import { inputProps } from "../../types";
 
-type inputProps = {
-    labelTitle: string
-    placeholder: string
-    type: string
-    value: string
-    setValue: any
-}
+export const Input = ({
+  labelTitle,
+  placeholder,
+  type,
+  value,
+  setValue,
+}: inputProps) => {
+  const handleChangeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value);
+  };
 
-
-export const Input = ({ labelTitle, placeholder, type, value, setValue,}: inputProps) => {
-  const handleChange = (e:React.ChangeEvent <HTMLInputElement>) => {
-    setValue(e.target.value)
-  }
-  
-    return (
-        
-        <div>
-            <S.inputLabel>
-                {labelTitle}
-            </S.inputLabel>
-            <S.userInput placeholder={placeholder} type={type} value={value} onChange={(e: ChangeEvent<HTMLInputElement>) => handleChange (e) }/>
-        </div>
-        
-    )
-}
-
+  return (
+    <div>
+      <S.Label>{labelTitle}</S.Label>
+      <S.Input
+        placeholder={placeholder}
+        type={type}
+        value={value}
+        onChange={(e) => handleChangeValue(e)}
+      />
+    </div>
+  );
+};
