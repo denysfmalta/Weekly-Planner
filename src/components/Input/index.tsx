@@ -18,9 +18,9 @@ export const Input = ({ labelTitle, placeholder, type, value, setValue,}: inputP
     return (
         
         <div>
-            <label>
+            <S.inputLabel>
                 {labelTitle}
-            </label>
+            </S.inputLabel>
             <S.userInput placeholder={placeholder} type={type} value={value} onChange={(e: ChangeEvent<HTMLInputElement>) => handleChange (e) }/>
         </div>
         

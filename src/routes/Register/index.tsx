@@ -20,23 +20,23 @@ export const Register = ({ image }: any) => {
         <S.title>Welcome,</S.title>
         <S.subtitle>Please, register to continue</S.subtitle>
       
-        <S.userForm>
+        <S.inputForm>
         <Input
-          labelTitle="First name"
+          labelTitle="first name"
           placeholder="Your first name"
           type="text"
           value={firstName}
           setValue={setFirstName}
         />
         <Input
-          labelTitle="Last name"
+          labelTitle="last name"
           placeholder="Your last name"
           type="text"
           value={lastName}
           setValue={setLastName}
         />
         <Input
-          labelTitle="Birth date"
+          labelTitle="birth date"
           placeholder="MM/DD/YY"
           type="text"
           value={birthDate}
@@ -77,7 +77,7 @@ export const Register = ({ image }: any) => {
           value={yourConfirmedPassword}
           setValue={setYourConfirmedPassword}
         />
-        </S.userForm>
+        </S.inputForm>
        
         <Button buttonName="Register now" />
       </S.textContainer>
