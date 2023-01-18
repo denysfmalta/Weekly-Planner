@@ -14,7 +14,7 @@ export const Input = ({
   };
 
   return (
-    <div>
+    <S.Div>
       <S.Label>{labelTitle}</S.Label>
       <S.Input
         placeholder={placeholder}
@@ -22,6 +22,6 @@ export const Input = ({
         value={value}
         onChange={(e) => handleChangeValue(e)}
       />
-    </div>
+    </S.Div>
   );
 };

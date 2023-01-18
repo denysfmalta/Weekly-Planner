@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { ThemeProvider } from 'styled-components';
+
 import App from './App';
-import GlobalStyle from './styles/global';
+import GlobalStyle from './styles/globalStyles';
 import theme from './styles/theme';
 
 const root = ReactDOM.createRoot(
@@ -15,4 +16,4 @@ root.render(
     <App />
     </ThemeProvider>
   </React.StrictMode>
-          );
+);

@@ -1,18 +1,26 @@
 import styled from "styled-components";
 import theme from "../../styles/theme";
 
+export const Div = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+`;
+
 export const Input = styled.input`
-  width: 379px;
-  height: 60px;
+  max-width: 379px;
+  width: 100%;
+  height: 40px;
   background: ${theme.colors.black700};
   border: 1px solid ${theme.colors.white};
   border-radius: 50px;
-  margin-bottom: 18px;
+  color: ${theme.colors.white};
 
   &::placeholder {
     font-size: 12px;
     color: ${theme.colors.white200};
-    padding: 23px;
+    padding-left: 23px;
   }
 `;
 
