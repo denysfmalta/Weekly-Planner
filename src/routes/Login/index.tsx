@@ -13,8 +13,9 @@ export const Login = () => {
               <S.textContainer>
                 <div>
                   <S.title>Welcome,</S.title>
-                  <S.subtitle>Please, register to continue</S.subtitle>
+                  <S.subtitle>To continue to browse safely, log in to the network.</S.subtitle>
                 </div>
+                <S.login>Login</ S.login>
                 <S.Form>
                   <S.InputContainer>
                     <Input
@@ -32,7 +33,8 @@ export const Login = () => {
                       setValue={setUserPassword}
                     />
                   </S.InputContainer>
-                  <Button buttonName="Register now" />
+                  
+                  <Button buttonName="Log in" />
                 </S.Form>
               </S.textContainer>
               <S.imageContainer>

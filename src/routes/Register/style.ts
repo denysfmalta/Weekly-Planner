@@ -35,8 +35,9 @@ export const InputContainer = styled.div`
 `;
 
 export const title = styled.h1`
+  margin-top: 94px;
+  margin-right: 296px;
   font-family: Mulish;
-  text-align: start;
   font-weight: 400;
   font-size: 54px;
   line-height: 75px;
@@ -50,7 +51,7 @@ export const subtitle = styled.p`
   font-size: 14px;
   line-height: 20px;
   color: ${theme.colors.white200};
-  margin-bottom: 27px;
+  margin-bottom: 67px;
 `;
 
 export const imageContainer = styled.div`
@@ -74,3 +75,13 @@ export const background = styled.div`
   background-position: cover;
   background-repeat: no-repeat;
 `;
+
+export const login = styled.p`
+font-family: "Mulish";
+font-size: 30px;
+line-height: 38px;
+line-height: 100%;
+margin-top: 135px;
+margin-bottom: 32px;
+margin-right: 287px;
+`

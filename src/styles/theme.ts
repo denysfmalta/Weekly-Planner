@@ -8,6 +8,7 @@ export default {
     black700: "#26292C",
     orange100: "#FF2D04",
     orange200: "#C13216",
+    yellow: "#E9B425",
   },
   shadow: {
     blackShadow: "rgba(0, 0, 0, 0.25)",

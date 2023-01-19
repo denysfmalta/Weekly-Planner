@@ -8,19 +8,20 @@ export const Div = styled.div`
   margin-bottom: 18px;
 `;
 
-export const Input = styled.input`
-  max-width: 379px;
+export const Input = styled.input.attrs((props: { erro: boolean }) => props)`
+  max-width: 356px;
   width: 100%;
   height: 40px;
   background: ${theme.colors.black700};
-  border: 1px solid ${theme.colors.white};
+  border: 1px solid
+    ${(props) => (props.erro ? theme.colors.yellow : theme.colors.white)};
   border-radius: 50px;
   color: ${theme.colors.white};
+  padding-left: 23px;
 
   &::placeholder {
     font-size: 12px;
     color: ${theme.colors.white200};
-    padding-left: 23px;
   }
 `;
 

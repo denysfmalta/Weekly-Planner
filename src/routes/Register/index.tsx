@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../../assets/compass-logo.png";
-import { Button } from "../../components";
+import { Button, Error } from "../../components";
 import { Input } from "../../components";
 import * as S from "./style";
 
@@ -14,23 +14,27 @@ export const Register = () => {
   const [yourPassword, setYourPassword] = React.useState("");
   const [yourConfirmedPassword, setYourConfirmedPassword] = React.useState("");
 
+  const [errorFirstName, setErrorFirstName] = React.useState(false);
+  const [errorLastName, setErrorLastName] = React.useState(false);
+
+
   React.useEffect(() => {
     const storedData = {
-      firstName,
-      lastName,
-      birthDate,
-      yourCountry,
-      yourCity,
-      yourEmail,
-      yourPassword,
-      yourConfirmedPassword,
+      firstName: firstName,
+      lastName: lastName,
     };
 
     localStorage.setItem("saved", JSON.stringify(storedData));
-  }, [birthDate, firstName, lastName, yourCity, yourConfirmedPassword, yourCountry, yourEmail, yourPassword]);
+  }, [firstName, lastName]);
 
   const saved = localStorage.getItem("saved");
   console.log("VALORES SALVOS LOCALSTORAGE: ", saved);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    !firstName ? setErrorFirstName(true) : setErrorFirstName(false);
+    !lastName ? setErrorLastName(true) : setErrorLastName(false);
+  };
 
   return (
     <S.Page>
@@ -39,7 +43,7 @@ export const Register = () => {
           <S.title>Welcome,</S.title>
           <S.subtitle>Please, register to continue</S.subtitle>
         </div>
-        <S.Form>
+        <S.Form onSubmit={handleSubmit}>
           <S.InputContainer>
             <Input
               labelTitle="first name"
@@ -47,20 +51,25 @@ export const Register = () => {
               type="text"
               value={firstName}
               setValue={setFirstName}
+              error={errorFirstName}
             />
+            {errorFirstName ? <Error fieldname="first name" /> : null}
             <Input
               labelTitle="last name"
               placeholder="Your first name"
               type="text"
               value={lastName}
               setValue={setLastName}
+              error={errorLastName}
             />
-            <Input
+            {errorLastName ? <Error fieldname="last name" /> : null}
+           {/*  <Input
               labelTitle="birth date"
               placeholder="MM/DD/YYYY"
               type="text"
               value={birthDate}
               setValue={setBirthDate}
+              error={error}
             />
             <Input
               labelTitle="Country"
@@ -68,6 +77,7 @@ export const Register = () => {
               type="text"
               value={yourCountry}
               setValue={setYourCountry}
+              error={error}
             />
             <Input
               labelTitle="City"
@@ -75,6 +85,7 @@ export const Register = () => {
               type="text"
               value={yourCity}
               setValue={setYourCity}
+              error={error}
             />
             <Input
               labelTitle="e-mail"
@@ -82,6 +93,7 @@ export const Register = () => {
               type="email"
               value={yourEmail}
               setValue={setYourEmail}
+              error={error}
             />
             <Input
               labelTitle="password"
@@ -89,6 +101,7 @@ export const Register = () => {
               type="password"
               value={yourPassword}
               setValue={setYourPassword}
+              error={error}
             />
             <Input
               labelTitle="password"
@@ -96,7 +109,8 @@ export const Register = () => {
               type="password"
               value={yourConfirmedPassword}
               setValue={setYourConfirmedPassword}
-            />
+              error={error}
+            /> */}
           </S.InputContainer>
           <Button buttonName="Register now" />
         </S.Form>
