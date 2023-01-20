@@ -1,2 +1,2 @@
-export * from './Register/index'
-export * from './Login/index'
+export * from './Home/Register/index'
+export * from './Home/Login/index'

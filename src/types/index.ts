@@ -14,3 +14,7 @@ export type buttonProps = {
 export type errorProps = {
   fieldname: string
 }
+
+export type homeProps = {
+  subtitle: string
+}

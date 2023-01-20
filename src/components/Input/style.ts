@@ -9,9 +9,9 @@ export const Div = styled.div`
 `;
 
 export const Input = styled.input.attrs((props: { erro: boolean }) => props)`
-  max-width: 356px;
-  width: 100%;
-  height: 40px;
+  max-width: 379px;
+  width: 379px;
+  height: 60px;
   background: ${theme.colors.black700};
   border: 1px solid
     ${(props) => (props.erro ? theme.colors.yellow : theme.colors.white)};
@@ -30,5 +30,5 @@ export const Label = styled.label`
   font-size: 16px;
   line-height: 20px;
   color: ${theme.colors.white200};
-  margin-right: 17px;
+  margin-right: 23px;
 `;

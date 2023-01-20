@@ -2,7 +2,7 @@ import styled from "styled-components";
 import theme from "../../styles/theme";
 
 export const Button = styled.button`
-  width: 471px;
+  width: 508px;
   height: 47px;
   border-radius: 50px;
   background: linear-gradient(
@@ -17,5 +17,5 @@ export const Button = styled.button`
   line-height: 40px;
   color: ${theme.colors.white};
   cursor: pointer;
-
+  height: 67px;
 `;
