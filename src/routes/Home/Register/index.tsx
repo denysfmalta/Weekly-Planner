@@ -1,7 +1,8 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import { Button, Error } from "../../../components";
 import { Input } from "../../../components";
+import { PasswordContext } from "../../../contexts/passwordContext";
+import { UserContext } from "../../../contexts/userContext";
 import * as S from "./style";
 
 export const Register = () => {
@@ -23,11 +24,13 @@ export const Register = () => {
   const [errorYourPassword, setErrorYourPassword] = React.useState(false);
   const [errorYourConfirmedPassword, setErrorYourConfirmedPassword] =
     React.useState(false);
-    const navigate = useNavigate()
+
+  const { setContextUser } = React.useContext(UserContext);
+  const { setContextPassword } = React.useContext(PasswordContext);
 
   React.useEffect(() => {
     localStorage.setItem(
-      "saved",
+      "userData",
       JSON.stringify({
         firstName,
         lastName,
@@ -39,10 +42,15 @@ export const Register = () => {
         yourConfirmedPassword,
       })
     );
+
+    setContextUser(yourEmail);
+    setContextPassword(yourPassword);
   }, [
     birthDate,
     firstName,
     lastName,
+    setContextPassword,
+    setContextUser,
     yourCity,
     yourConfirmedPassword,
     yourCountry,
@@ -50,123 +58,98 @@ export const Register = () => {
     yourPassword,
   ]);
 
-  const saved = localStorage.getItem("saved");
-  console.log("VALORES SALVOS LOCALSTORAGE: ", saved);
-
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     !firstName ? setErrorFirstName(true) : setErrorFirstName(false);
     !lastName ? setErrorLastName(true) : setErrorLastName(false);
-    !birthDate ? setErrorBirthDate(true) : setErrorLastName(false);
-    !yourCountry ? setErrorYourCountry(true) : setErrorLastName(false);
-    !yourCity ? setErrorYourCity(true) : setErrorLastName(false);
-    !yourEmail ? setErrorYourEmail(true) : setErrorLastName(false);
-    !yourPassword ? setErrorYourPassword(true) : setErrorLastName(false);
+    !birthDate ? setErrorBirthDate(true) : setErrorBirthDate(false);
+    !yourCountry ? setErrorYourCountry(true) : setErrorYourCountry(false);
+    !yourCity ? setErrorYourCity(true) : setErrorYourCity(false);
+    !yourEmail ? setErrorYourEmail(true) : setErrorYourEmail(false);
+    !yourPassword ? setErrorYourPassword(true) : setErrorYourPassword(false);
     !yourConfirmedPassword
       ? setErrorYourConfirmedPassword(true)
-      : setErrorLastName(false);
-      if (
-        !firstName ||
-        !lastName ||
-        birthDate ||
-        !yourCountry ||
-        !yourCity ||
-        !yourEmail ||
-        !yourPassword ||
-        !yourConfirmedPassword
-      ) {
-        return;
-      }
-      if (!errorFirstName) {
-        navigate("/login");
-      }
+      : setErrorYourConfirmedPassword(false);
   };
 
   return (
-    <>
-      <div>
-        <S.title>Welcome,</S.title>
-        <S.subtitle>Please, register to continue</S.subtitle>
-      </div>
-      <S.Form onSubmit={handleSubmit}>
-        <S.InputContainer>
-          <Input
-            labelTitle="first name"
-            placeholder="Your first name"
-            type="text"
-            value={firstName}
-            setValue={setFirstName}
-            error={errorFirstName}
-          />
-          {errorFirstName ? <Error fieldname="first name" /> : null}
-          <Input
-            labelTitle="last name"
-            placeholder="Your last name"
-            type="text"
-            value={lastName}
-            setValue={setLastName}
-            error={errorLastName}
-          />
-          {errorLastName ? <Error fieldname="last name" /> : null}
-          <Input
-            labelTitle="birth date"
-            placeholder="MM/DD/YYYY"
-            type="text"
-            value={birthDate}
-            setValue={setBirthDate}
-            error={errorBirthDate}
-          />
-          {errorBirthDate ? <Error fieldname="last name" /> : null}
-          <Input
-            labelTitle="Country"
-            placeholder="Your Country"
-            type="text"
-            value={yourCountry}
-            setValue={setYourCountry}
-            error={errorYourCountry}
-          />
-          {errorYourCountry ? <Error fieldname="last name" /> : null}
-          <Input
-            labelTitle="City"
-            placeholder="Your City"
-            type="text"
-            value={yourCity}
-            setValue={setYourCity}
-            error={errorYourCity}
-          />
-          {errorYourCity ? <Error fieldname="last name" /> : null}
-          <Input
-            labelTitle="e-mail"
-            placeholder="A valid e-mail here"
-            type="email"
-            value={yourEmail}
-            setValue={setYourEmail}
-            error={errorYourEmail}
-          />
-          {errorYourEmail ? <Error fieldname="last name" /> : null}
-          <Input
-            labelTitle="password"
-            placeholder="Your password"
-            type="password"
-            value={yourPassword}
-            setValue={setYourPassword}
-            error={errorYourPassword}
-          />
-          {errorYourPassword ? <Error fieldname="last name" /> : null}
-          <Input
-            labelTitle="password"
-            placeholder="Confirm your password"
-            type="password"
-            value={yourConfirmedPassword}
-            setValue={setYourConfirmedPassword}
-            error={errorYourConfirmedPassword}
-          />
-          {errorYourConfirmedPassword ? <Error fieldname="last name" /> : null}
-        </S.InputContainer>
-
-        <Button buttonName="Register now" />
-        
-      </S.Form>
-    </>
+   
+        <S.Form onSubmit={handleSubmit}>
+          <S.InputContainer>
+            <Input
+              labelTitle="first name"
+              placeholder="Your first name"
+              type="text"
+              value={firstName}
+              setValue={setFirstName}
+              error={errorFirstName}
+            />
+            {errorFirstName ? <Error fieldname="first name" /> : null}
+            <Input
+              labelTitle="last name"
+              placeholder="Your first name"
+              type="text"
+              value={lastName}
+              setValue={setLastName}
+              error={errorLastName}
+            />
+            {errorLastName ? <Error fieldname="last name" /> : null}
+            <Input
+              labelTitle="birth date"
+              placeholder="MM/DD/YYYY"
+              type="text"
+              value={birthDate}
+              setValue={setBirthDate}
+              error={errorBirthDate}
+            />
+            {errorBirthDate ? <Error fieldname="birth date" /> : null}
+            <Input
+              labelTitle="Country"
+              placeholder="Your Country"
+              type="text"
+              value={yourCountry}
+              setValue={setYourCountry}
+              error={errorYourCountry}
+            />
+            {errorYourCountry ? <Error fieldname="Country" /> : null}
+            <Input
+              labelTitle="City"
+              placeholder="Your City"
+              type="text"
+              value={yourCity}
+              setValue={setYourCity}
+              error={errorYourCity}
+            />
+            {errorYourCity ? <Error fieldname="City" /> : null}
+            <Input
+              labelTitle="e-mail"
+              placeholder="A valid e-mail here"
+              type="email"
+              value={yourEmail}
+              setValue={setYourEmail}
+              error={errorYourEmail}
+            />
+            {errorYourEmail ? <Error fieldname="e-mail" /> : null}
+            <Input
+              labelTitle="password"
+              placeholder="Your password"
+              type="password"
+              value={yourPassword}
+              setValue={setYourPassword}
+              error={errorYourPassword}
+            />
+            {errorYourPassword ? <Error fieldname="password" /> : null}
+            <Input
+              labelTitle="password"
+              placeholder="Confirm your password"
+              type="password"
+              value={yourConfirmedPassword}
+              setValue={setYourConfirmedPassword}
+              error={errorYourConfirmedPassword}
+            />
+            {errorYourConfirmedPassword ? <Error fieldname="password" /> : null}
+          </S.InputContainer>
+          <Button buttonName="Register now" />
+        </S.Form>
   );
 };
