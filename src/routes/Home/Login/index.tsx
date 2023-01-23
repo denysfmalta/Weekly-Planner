@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Button } from "../../../components";
 import { Input } from "../../../components";
+import { getFullDate } from "../../asd";
 import * as S from "./style";
 
 export const Login = () => {
@@ -13,7 +14,10 @@ export const Login = () => {
       const savedJSON = JSON.parse(savedData!)
       setUser(savedJSON) 
     }, [])
-    console.log(user);
+    console.log(getFullDate()) 
+;
+    
+    
     return (<>
                 <div>
                   <S.title>Welcome,</S.title>

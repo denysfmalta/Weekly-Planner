@@ -18,3 +18,21 @@ export type errorProps = {
 export type homeProps = {
   subtitle: string
 }
+export type providerProps = {
+  value: string;
+}
+
+export type UserContextProps = {
+  contextUser: string 
+  setContextUser: (contextUser: string) => void
+}
+
+export type PasswordContextProps = {
+  passwordContext: string
+  setContextPassword: (passwordContex: string) => void
+}
+
+export type AuthProps = {
+  isAuth: boolean
+  setIsAuth: (isAuth: boolean) => void
+}

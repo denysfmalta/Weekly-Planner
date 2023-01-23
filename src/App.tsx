@@ -7,13 +7,15 @@ import { Home } from "./routes/Home";
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
+    <Routes>
         <Route path="/" element={<Home />} >
         <Route index element={<Register />} />
         <Route path="/login" element={<Login />} />
         </Route>
       </Routes>
+ 
     </BrowserRouter>
+    
   );
 }
 
