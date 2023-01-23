@@ -1,6 +1,6 @@
 import React from "react";
-import * as S from "./style";
 import { getFullDate, getHour } from "../../utils/date";
+import * as S from "./style";
 import cloudy from "../../assets/cloudy.svg";
 import logo from "../../assets/logo-dark.svg";
 import arrow from "../../assets/arrow-left.svg";

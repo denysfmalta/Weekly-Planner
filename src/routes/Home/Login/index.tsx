@@ -18,10 +18,7 @@ export const Login = () => {
     
     return (<>
                 <div>
-                  <S.title>Welcome,</S.title>
-
-                  <S.subtitle>To continue to browse safely, log in 
-                    to the <br /> network.</S.subtitle>
+             
                 </div>
                 <S.login>Login</ S.login>
                 <S.Form>

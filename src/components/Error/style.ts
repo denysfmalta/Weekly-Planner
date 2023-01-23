@@ -6,4 +6,4 @@ export const Paragraph = styled.p`
     color: ${theme.colors.yellow};
     margin-top: -18px;
     margin-left: -100px
-` 
+`

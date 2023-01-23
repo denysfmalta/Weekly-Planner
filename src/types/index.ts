@@ -1,26 +1,19 @@
 export type inputProps = {
-  labelTitle: string;
+  labelTitle?: string;
   placeholder: string;
   type: string;
   value: string;
-  setValue: any;
+  setValue: (value: string) => void;
   error: boolean;
 };
 
 export type buttonProps = {
-  buttonName: string
+  buttonName: string;
 };
 
 export type errorProps = {
-  fieldname: string
-}
-
-export type homeProps = {
-  subtitle: string
-}
-export type providerProps = {
-  value: string;
-}
+  fieldname: string;
+};
 
 export type UserContextProps = {
   contextUser: string 

@@ -73,7 +73,7 @@ export const Register = () => {
   };
 
   return (
-   
+    
         <S.Form onSubmit={handleSubmit}>
           <S.InputContainer>
             <Input

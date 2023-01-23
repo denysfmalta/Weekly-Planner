@@ -7,7 +7,6 @@ export const Div = styled.div`
   justify-content: space-between;
   margin-bottom: 18px;
 `;
-
 export const Input = styled.input.attrs((props: { erro: boolean }) => props)`
   max-width: 379px;
   width: 379px;
@@ -30,5 +29,5 @@ export const Label = styled.label`
   font-size: 16px;
   line-height: 20px;
   color: ${theme.colors.white200};
-  margin-right: 23px;
+  margin-right: 17px;
 `;

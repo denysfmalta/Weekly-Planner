@@ -1,13 +1,17 @@
-import * as S from "./Login/style"
-import logo from "../../assets/compass-logo.png"
-import { Outlet } from "react-router-dom"
+import { Outlet } from 'react-router-dom'
+import * as S from './style'
+import logo from "../../assets/compass-logo.png";
 
 export const Home = () => {
+
     return (
         <S.Page>
         <S.textContainer>
-          
-          <Outlet />
+          <div>
+            <S.title>Welcome,</S.title>
+            <S.subtitle>Please, register to continue</S.subtitle>
+          </div>
+            <Outlet />
         </S.textContainer>
         <S.imageContainer>
           <S.background>
