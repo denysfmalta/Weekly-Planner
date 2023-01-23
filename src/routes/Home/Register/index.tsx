@@ -73,7 +73,10 @@ export const Register = () => {
   };
 
   return (
-    
+    <>
+      <S.title>Welcome,</S.title>
+     <S.subtitle>Please, register to continue</S.subtitle>
+       
         <S.Form onSubmit={handleSubmit}>
           <S.InputContainer>
             <Input
@@ -151,5 +154,6 @@ export const Register = () => {
           </S.InputContainer>
           <Button buttonName="Register now" />
         </S.Form>
+        </>
   );
 };

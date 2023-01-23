@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import img from "../../../assets/image-2.png";
-import theme from "../../../styles/theme";
+import img from "../../assets/image-2.png";
+import theme from "../../styles/theme";
 
 export const Page = styled.div`
   width: 100%;
