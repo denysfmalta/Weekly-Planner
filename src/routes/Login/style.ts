@@ -36,7 +36,7 @@ export const InputContainer = styled.div`
 
 export const title = styled.h1`
   margin-right: 227px;
-  margin-top: 94px;
+  margin-top: 4px;
   font-family: Mulish;
   font-weight: 400;
   font-size: 54px;
@@ -52,7 +52,7 @@ export const subtitle = styled.p`
   font-family: 'Mulish';
   margin-right: 198px;
   margin-top: 6px;
-  margin-bottom: 135px;
+  margin-bottom: 70px;
 `;
 
 export const imageContainer = styled.div`

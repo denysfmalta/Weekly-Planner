@@ -8,7 +8,7 @@ export const Form = styled.form`
 
 export const InputContainer = styled.div`
   width: 507px;
-  height: 670px;
+  height: auto;
   display: flex;
   flex-direction: column;
 `;
@@ -17,13 +17,13 @@ export const title = styled.h1`
   font-family: Mulish;
   text-align: start;
   font-weight: 400;
-  font-size: 54px;
+  font-size: 50px;
   line-height: 75px;
   color: ${theme.colors.white200};
   height: 75px;
   width: 273px;
   margin-right: 266px;
-  margin-top: 94px;
+  margin-top: 4px;
 `;
 
 export const subtitle = styled.p`
@@ -32,6 +32,6 @@ export const subtitle = styled.p`
   font-size: 14px;
   line-height: 20px;
   color: ${theme.colors.white200};
-  margin-bottom: 67px;
+  margin-bottom: 22px;
   margin-right: 366px;
 `

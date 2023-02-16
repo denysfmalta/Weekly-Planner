@@ -10,7 +10,7 @@ export const Div = styled.div`
 export const Input = styled.input.attrs((props: { erro: boolean }) => props)`
   max-width: 379px;
   width: 379px;
-  height: 60px;
+  height: 40px;
   background: ${theme.colors.black700};
   border: 1px solid
     ${(props) => (props.erro ? theme.colors.yellow : theme.colors.white)};

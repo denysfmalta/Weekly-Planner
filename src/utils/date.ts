@@ -30,11 +30,8 @@ export const getFullDate = () => {
 
   const verifyDay = (day: number | string) => {
     if (day === 1) return `st`;
-
     if (day === 2) return `nd`;
-
     if (day === 3) return `rd`;
-
     return `th`;
   };
 

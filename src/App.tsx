@@ -14,7 +14,7 @@ function App() {
   const [passwordContext, setContextPassword] = React.useState<string>("");
   const [isAuth, setIsAuth] = React.useState<boolean>(false);
 
-  console.log("Dados do CONTEXT", contextUser, "  , ", passwordContext)
+ console.log("Dados do CONTEXT", contextUser, "  , ", passwordContext);
 
   return (
     <AuthContext.Provider value={{ isAuth, setIsAuth }}>
@@ -23,8 +23,8 @@ function App() {
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Home />}>
-                <Route index element={<Register />} />
-              <Route path="/login" element={<Login />} />
+                <Route index element={<Login />} />
+                <Route path="/register" element={<Register />} />
               </Route>
               <Route path="/dashboard" element={<Dashboard />} />
             </Routes>

@@ -17,5 +17,5 @@ export const Button = styled.button`
   line-height: 40px;
   color: ${theme.colors.white};
   cursor: pointer;
-  height: 67px;
+  height: 47px;
 `;

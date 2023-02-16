@@ -86,6 +86,10 @@ export const weather = styled.div`
 
 export const img = styled.img``;
 
+export const logout = styled.img`
+  cursor: pointer;
+`;
+
 export const Paragraph = styled.p`
   font-weight: 700;
   font-size: 48px;
