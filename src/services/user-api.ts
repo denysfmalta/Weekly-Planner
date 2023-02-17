@@ -9,9 +9,9 @@ export const UserApi = {
         );
     
         return response;
-  }
+  },
 
-  SingIn: () => {
+SignIn: () => {
 
   },
 };

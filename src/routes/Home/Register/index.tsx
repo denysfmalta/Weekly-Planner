@@ -5,6 +5,7 @@ import { Input } from "../../../components";
 import { ReturnLogin } from "../../../components/Return";
 import { PasswordContext } from "../../../contexts/passwordContext";
 import { UserContext } from "../../../contexts/userContext";
+import { UserApi } from "../../../services/user-api";
 import * as S from "./style";
 
 export const Register = () => {
@@ -62,21 +63,28 @@ export const Register = () => {
 
           return;
         }
+        const data = {
+          firstName,
+          lastName,
+          birthDate,
+          city: yourCity,
+          country: yourCountry,
+          email: yourEmail,
+          password: yourPassword,
+          confirmPassword: yourConfirmedPassword,
+        };
 
-        localStorage.setItem(
-          "userData",
-          JSON.stringify({
-            firstName,
-            lastName,
-            birthDate,
-            yourCountry,
-            yourCity,
-            yourEmail,
-            yourPassword,
-            yourConfirmedPassword,
+        UserApi.SingUp(data)
+          .then((response) => {
+            if (response.status === 201) {
+              alert("usuário cadastrado");
+              navigate("/");
+            }
           })
-        );
-
+          .catch((error) => {
+            console.log(error);
+          });
+          
         setContextUser(yourEmail);
         setContextPassword(yourPassword);
         navigate('/')
