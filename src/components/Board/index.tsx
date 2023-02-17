@@ -1,12 +1,14 @@
+import * as S from "./style";
+
 export const Board = () => {
    return ( <div>
-        <button>Monday</button>
-        <button>Tuesday</button>
-        <button>Wednesday</button>
-        <button>Thursday</button>
-        <button>Friday</button>
-        <button>Saturday</button>
-        <button>Sunday</button>
+        <S.Monday>Monday</S.Monday>
+        <S.Tuesday>Tuesday</S.Tuesday>
+        <S.Wednesday>Wednesday</S.Wednesday>
+        <S.Thursday>Thursday</S.Thursday>
+        <S.Friday>Friday</S.Friday>
+        <S.Saturday>Saturday</S.Saturday>
+        <S.Sunday>Sunday</S.Sunday>
     </div>
    )
 }

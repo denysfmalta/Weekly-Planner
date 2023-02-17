@@ -1,8 +1,10 @@
+import * as S from "./style";
+
 export const ActionSection = () => {
     return (
     <div> 
-        <input type='text'></input>
-        <select name='day' id='day'>
+        <S.Input type='text'></S.Input>
+        <S.Day name='day' id='day'>
             <option value='sunday'>Sunday</option>
             <option value='monday'>Monday</option>
             <option value='tuesday'>Tuesday</option>
@@ -10,13 +12,12 @@ export const ActionSection = () => {
             <option value='thursday'>Thursday</option>
             <option value='friday'>Friday</option>
             <option value='saturday'>Saturday</option>
-          
-        </select>
-        <select name='hours'>
+        </S.Day>
+        <S.Hour name='hours'>
             <option value='10:00'>10:00</option>
-        </select>
-        <button>+ Add to calendar</button>
-        <button>- Delete all</button>
+        </S.Hour>
+        <S.Add>+ Add to calendar</S.Add>
+        <S.Delete>- Delete all</S.Delete>
     </div>
     )
 }
