@@ -37,3 +37,12 @@ export const getFullDate = () => {
 
   return `${month} ${day}${verifyDay(day)}, ${year}`;
 };
+
+export const formatHour = (value: string) => {
+  const date = new Date(value);
+  const hours = date.getHours();
+  const minutes = date.getMinutes();
+  const hour = hours < 10 ? `0${hours}` : hours;
+  const minute = minutes < 10 ? `0${minutes}` : minutes;
+  return `${hour}h${minute}m`;
+};
