@@ -16,8 +16,11 @@ export const ActionSection = () => {
         <S.Hour name='hours'>
             <option value='10:00'>10:00</option>
         </S.Hour>
-        <S.Add>+ Add to calendar</S.Add>
-        <S.Delete>- Delete all</S.Delete>
+        
+        
+            <S.Add>+ Add to calendar</S.Add>
+            <S.Delete>- Delete all</S.Delete>
+        
     </div>
     )
 }

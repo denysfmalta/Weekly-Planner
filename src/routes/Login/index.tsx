@@ -1,41 +1,48 @@
-import { useState, useEffect, useCallback } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Input } from "../../components";
 import { Redirect } from "../../components/Redirect";
+import { AuthContext } from "../../contexts/authContext";
 import { UserApi } from "../../services/user-api";
 import * as S from "./style";
 
 export const Login = () => {
-  const [userName, setUserName] = useState("");
-  const [userPassword, setUserPassword] = useState("");
+  const [userName, setUserName] = React.useState("");
+  const [userPassword, setUserPassword] = React.useState("");
+  const { isAuth, setIsAuth } = React.useContext(AuthContext);
 
   const navigate = useNavigate();
 
-
-  const login = useCallback(
+  const login = React.useCallback(
     (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
 
       const data = {
         email: userName,
-        password: userPassword
-      }
-     UserApi.SingIn(data).then(res => {
-      console.log(res)
-      if(res.status === 200) navigate("/dashboard")
-      if(res.status === 403) {
-        const {errors} = res.data
-        errors.map((error: any) => (
-          alert(`${error}`)
-
-        ))
-      }
-     }).catch(error => {
-      console.log(error)
-     })
+        password: userPassword,
+      };
+      UserApi.SingIn(data)
+        .then((res) => {
+          if (res.status === 200) {
+            console.log(res.data.token);
+            setIsAuth(res.data.token);
+          }
+        })
+        .catch((error: any) => {
+          if (error.response.status === 403) {
+            alert("This user doesn't exist. Please sign up first!");
+          }
+        });
     },
-    [navigate, userName, userPassword]
+    [setIsAuth, userName, userPassword]
   );
+
+  React.useEffect(() => {
+    if (isAuth) {
+      localStorage.setItem("token", JSON.stringify(isAuth));
+      navigate("/dashboard");
+    }
+  }, [isAuth, navigate]);
 
   return (
     <>
