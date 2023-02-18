@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import theme from "../../../styles/theme";
 
-
 export const Form = styled.form`
   width: auto;
 `;
@@ -17,7 +16,7 @@ export const title = styled.h1`
   font-family: Mulish;
   text-align: start;
   font-weight: 400;
-  font-size: 50px;
+  font-size: 48px;
   line-height: 75px;
   color: ${theme.colors.white200};
   height: 75px;
@@ -34,4 +33,4 @@ export const subtitle = styled.p`
   color: ${theme.colors.white200};
   margin-bottom: 22px;
   margin-right: 366px;
-`
+`;

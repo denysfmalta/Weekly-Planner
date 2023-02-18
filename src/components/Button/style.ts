@@ -3,7 +3,7 @@ import theme from "../../styles/theme";
 
 export const Button = styled.button`
   width: 508px;
-  height: 47px;
+  height: 38px;
   border-radius: 50px;
   background: linear-gradient(
     90deg,
@@ -18,4 +18,5 @@ export const Button = styled.button`
   color: ${theme.colors.white};
   cursor: pointer;
   height: 47px;
+  margin-top: 5px;
 `;

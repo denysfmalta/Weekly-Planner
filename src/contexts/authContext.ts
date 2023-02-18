@@ -1,7 +1,9 @@
-import React from "react"
-import { AuthProps } from "../types"
+import React from "react";
+import { AuthProps } from "../types";
 
 export const AuthContext = React.createContext<AuthProps>({
-    isAuth: false,
-    setIsAuth: (isAuth) => {}
-})
+  isAuth: false,
+  setIsAuth: (isAuth) => {
+    return !isAuth;
+  },
+});

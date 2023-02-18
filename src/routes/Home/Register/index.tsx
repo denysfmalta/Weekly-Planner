@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Error } from "../../../components";
 import { Input } from "../../../components";
-import { ReturnLogin } from "../../../components/Return";
+import { Redirect } from "../../../components/Redirect";
 import { PasswordContext } from "../../../contexts/passwordContext";
 import { UserContext } from "../../../contexts/userContext";
 import { UserApi } from "../../../services/user-api";
@@ -31,11 +31,11 @@ export const Register = () => {
   const { setContextUser } = React.useContext(UserContext);
   const { setContextPassword } = React.useContext(PasswordContext);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleSubmit = React.useCallback(
-    (e: React.FormEvent<HTMLFormElement>) => {
-      e.preventDefault();
+    async (e?: React.FormEvent<HTMLFormElement>) => {
+      e!.preventDefault();
 
       try {
         if (
@@ -63,6 +63,7 @@ export const Register = () => {
 
           return;
         }
+
         const data = {
           firstName,
           lastName,
@@ -84,16 +85,16 @@ export const Register = () => {
           .catch((error) => {
             console.log(error);
           });
-          
+
         setContextUser(yourEmail);
         setContextPassword(yourPassword);
-        navigate('/')
       } catch (e) {}
     },
     [
       birthDate,
       firstName,
       lastName,
+      navigate,
       setContextPassword,
       setContextUser,
       yourCity,
@@ -101,16 +102,19 @@ export const Register = () => {
       yourCountry,
       yourEmail,
       yourPassword,
-      navigate
     ]
   );
+
+  React.useEffect(() => {
+    handleSubmit();
+  }, []);
 
   return (
     <>
       <S.title>Welcome,</S.title>
       <S.subtitle>Please, register to continue</S.subtitle>
 
-      <S.Form onSubmit={handleSubmit}>
+      <S.Form onSubmit={(e) => handleSubmit(e)}>
         <S.InputContainer>
           <Input
             labelTitle="first name"
@@ -186,8 +190,12 @@ export const Register = () => {
           {errorYourConfirmedPassword ? <Error fieldname="password" /> : null}
 
           <Button buttonName="Register now" />
+          <Redirect
+            text="Already have an account?"
+            route="/"
+            textLink="Click here to login"
+          />
         </S.InputContainer>
-        <ReturnLogin/>
       </S.Form>
     </>
   );

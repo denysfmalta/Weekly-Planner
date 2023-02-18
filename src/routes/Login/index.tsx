@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Input } from "../../components";
-import { ReturnRegister } from "../../components/Return";
+import { Redirect } from "../../components/Redirect";
 import * as S from "./style";
 
 export const Login = () => {
@@ -24,10 +24,12 @@ export const Login = () => {
       console.log("dados dos inputs", userName, userPassword);
 
       try {
-        if (userName === user.yourEmail && userPassword === user.yourPassword) {
-          navigate("/dashboard");
-          alert("Login bem sucedido");
+        if (userName !== user.yourEmail && userPassword !== user.yourPassword) {
+          alert("Usúario ou senha incorretos!");
+          return;
         }
+        alert("Login bem sucedido! Você será redirecionado ao dashboard.");
+        navigate("/dashboard");
       } catch (e) {}
     },
     [navigate, user.yourEmail, user.yourPassword, userName, userPassword]
@@ -63,7 +65,11 @@ export const Login = () => {
           />
         </S.InputContainer>
         <Button buttonName="Login" />
-        <ReturnRegister />
+        <Redirect
+          text="Don't have an account?"
+          route="/register"
+          textLink="Click here to register."
+        />
       </S.Form>
     </>
   );

@@ -29,3 +29,9 @@ export type AuthProps = {
   isAuth: boolean
   setIsAuth: (isAuth: boolean) => void
 }
+
+export type returnProps = {
+  route: string,
+  text: string;
+  textLink: string
+}
