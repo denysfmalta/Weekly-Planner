@@ -16,22 +16,31 @@ export type errorProps = {
 };
 
 export type UserContextProps = {
-  contextUser: string 
-  setContextUser: (contextUser: string) => void
-}
+  contextUser: string;
+  setContextUser: (contextUser: string) => void;
+};
 
 export type PasswordContextProps = {
-  passwordContext: string
-  setContextPassword: (passwordContex: string) => void
-}
+  passwordContext: string;
+  setContextPassword: (passwordContex: string) => void;
+};
 
 export type AuthProps = {
-  isAuth: boolean
-  setIsAuth: (isAuth: boolean) => void
-}
+  isAuth: boolean;
+  setIsAuth: (isAuth: boolean) => void;
+};
 
 export type returnProps = {
-  route: string,
+  route: string;
   text: string;
-  textLink: string
-}
+  textLink: string;
+};
+
+export type responseProps = {
+  _id: string;
+  userId: string;
+  updatedAt: string;
+  description: string;
+  daysOfWeek: string;
+  createdAt: string;
+};

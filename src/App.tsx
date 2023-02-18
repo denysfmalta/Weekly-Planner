@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Register } from "./routes";
-import { Login } from "./routes/Login";
+import { Login } from "./routes/Home/Login";
 import { UserContext } from "./contexts/userContext";
 import { PasswordContext } from "./contexts/passwordContext";
 import { AuthContext } from "./contexts/authContext";
@@ -26,7 +26,9 @@ function App() {
                 <Route index element={<Login />} />
                 <Route path="/register" element={<Register />} />
               </Route>
-              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/dashboard" element={<Dashboard />}>
+             {/*  <Route index element={<Monday />} /> */}
+              </Route>
             </Routes>
           </BrowserRouter>
         </UserContext.Provider>
