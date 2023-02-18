@@ -56,6 +56,7 @@ export const Add = styled.button`
   font-weight: 700;
   font-size: 20px;
   line-height: 20px;
+  align-self: flex-end;
   align-items: center;
   color: #ffffff;
   border: 0;
@@ -79,9 +80,14 @@ export const Delete = styled.button`
   font-size: 20px;
   line-height: 20px;
   color: #ffffff;
-  justify-content: flex-end;
+  margin-left: 24px;
   &:focus {
     outline: none;
     box-shadow: 0px 0px 2px red;
   }
+`;
+
+export const Box = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;
