@@ -2,37 +2,39 @@ import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Input } from "../../components";
 import { Redirect } from "../../components/Redirect";
+import { UserApi } from "../../services/user-api";
 import * as S from "./style";
 
 export const Login = () => {
   const [userName, setUserName] = useState("");
   const [userPassword, setUserPassword] = useState("");
-  const [user, setUser] = useState<any | null>({});
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const data = localStorage.getItem("userData");
-    const user = JSON.parse(data!);
-    setUser(user);
-    //console.log("dados do localStorage", user.yourEmail, user.yourPassword);
-  }, [navigate, userName]);
 
   const login = useCallback(
     (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-      console.log("dados dos inputs", userName, userPassword);
 
-      try {
-        if (userName !== user.yourEmail && userPassword !== user.yourPassword) {
-          alert("Usúario ou senha incorretos!");
-          return;
-        }
-        alert("Login bem sucedido! Você será redirecionado ao dashboard.");
-        navigate("/dashboard");
-      } catch (e) {}
+      const data = {
+        email: userName,
+        password: userPassword
+      }
+     UserApi.SingIn(data).then(res => {
+      console.log(res)
+      if(res.status === 200) navigate("/dashboard")
+      if(res.status === 403) {
+        const {errors} = res.data
+        errors.map((error: any) => (
+          alert(`${error}`)
+
+        ))
+      }
+     }).catch(error => {
+      console.log(error)
+     })
     },
-    [navigate, user.yourEmail, user.yourPassword, userName, userPassword]
+    [navigate, userName, userPassword]
   );
 
   return (

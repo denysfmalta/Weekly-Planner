@@ -8,3 +8,9 @@ export type createData = {
   password: string;
   confirmPassword: string;
 };
+
+
+export type userLog = {
+  email: string
+  password: string
+}

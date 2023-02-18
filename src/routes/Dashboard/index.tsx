@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom"
-import { Header } from "../../components"
+import { ActionSection, Header } from "../../components"
 
 
 export const Dashboard = () => {
@@ -7,6 +7,7 @@ export const Dashboard = () => {
     return (
         <div>
             <Header />
+            <ActionSection />
             <Outlet />
         </div>
     )

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { createData } from "./api-types";
+import { createData, userLog } from "./api-types";
 
 export const UserApi = {
   SingUp: async (data: createData) => {
@@ -11,23 +11,12 @@ export const UserApi = {
     return response;
   },
 
-  SingIn: () => {
+  SingIn: async (data: userLog) => {
+    const response = await axios.post(
+      `https://latam-challenge-2.deta.dev/api/v1/users/sign-in`,
+      data
+    );
 
+    return response;
   },
 };
-
-// POST --> salva um novo dado no servidor
-// GET --> busca os dados salvos no servidor
-// PUT --> Atualiza  / PATCH
-// DELETE --> apaga o registro no servidor
-/* 
-    id: 3,
-    nome: denys
-    sobrenome: dlommer
-    profissao: estagiario
-
-*/
-
-/*
-    ENTENDER A DIFERENÇA (COMO USA) ENTRE ASYNC/AWAIT E PROMISE
-*/

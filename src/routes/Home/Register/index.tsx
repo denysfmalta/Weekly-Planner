@@ -107,7 +107,7 @@ export const Register = () => {
 
   React.useEffect(() => {
     handleSubmit();
-  }, []);
+  }, [handleSubmit]);
 
   return (
     <>
