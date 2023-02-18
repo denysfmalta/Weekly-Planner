@@ -13,9 +13,7 @@ function App() {
   const [contextUser, setContextUser] = React.useState<string>("");
   const [passwordContext, setContextPassword] = React.useState<string>("");
   const [isAuth, setIsAuth] = React.useState<boolean>(false);
-
- console.log("Dados do CONTEXT", contextUser, "  , ", passwordContext);
-
+ 
   return (
     <AuthContext.Provider value={{ isAuth, setIsAuth }}>
       <PasswordContext.Provider value={{ passwordContext, setContextPassword }}>
@@ -26,9 +24,7 @@ function App() {
                 <Route index element={<Login />} />
                 <Route path="/register" element={<Register />} />
               </Route>
-              <Route path="/dashboard" element={<Dashboard />}>
-             {/*  <Route index element={<Monday />} /> */}
-              </Route>
+              <Route path="/dashboard" element={<Dashboard />} />
             </Routes>
           </BrowserRouter>
         </UserContext.Provider>

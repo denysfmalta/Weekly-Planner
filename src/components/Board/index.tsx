@@ -14,7 +14,7 @@ export const Board = () => {
 
   return (
     <>
-      <div>
+      <S.Days>
         <S.Monday>Monday</S.Monday>
         <S.Tuesday>Tuesday</S.Tuesday>
         <S.Wednesday>Wednesday</S.Wednesday>
@@ -22,10 +22,14 @@ export const Board = () => {
         <S.Friday>Friday</S.Friday>
         <S.Saturday>Saturday</S.Saturday>
         <S.Sunday>Sunday</S.Sunday>
-      </div>
+      </S.Days>
       {events &&
         events.map((event: responseProps) => (
-          <li key={event._id}>{event.description}</li>
+          <S.ChartLine key={event._id}>
+            <S.Time>{event.createdAt}</S.Time>
+            <S.Desc>{event.description}</S.Desc>
+            <S.Desc>{event.description}</S.Desc>
+          </S.ChartLine>
         ))}
     </>
   );

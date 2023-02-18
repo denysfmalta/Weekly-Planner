@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+export const Days = styled.div`
+height: 33px;
+margin-bottom: 33px;
+`
+
 export const Monday = styled.button`
 width: 14%;
 height: 33px;
@@ -125,4 +130,34 @@ font-weight: 600;
 line-height: 20px;
 letter-spacing: 0em;
 cursor: pointer;
+`
+
+export const ChartLine = styled.div`
+height: 85px;
+margin-top: 14px;
+display: flex;
+`
+export const Time = styled.div`
+box-sizing: border-box;
+max-height: 85px;
+max-width: 85px;
+min-width: 85px;
+min-height: 85px;
+padding-top: 30px;
+text-align: center;
+background: #FF0024;
+border-bottom: 1px solid #FF0024;
+border-radius: 10px;
+margin-left: 24px;
+`
+export const Desc = styled.div`
+box-sizing: border-box;
+padding: 12px 42px 13px 24px;
+max-width: 512px;
+min-width: 512px;
+height: 85px;
+background: #DDDDDD;
+border-left: 13px solid #FF0024;
+border-radius: 15px;
+margin-left: 18px;
 `
