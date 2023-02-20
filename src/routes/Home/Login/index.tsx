@@ -29,7 +29,7 @@ export const Login = () => {
           }
         })
         .catch((error: any) => {
-          if (error.response.status === 403) {
+          if (error.response.status === 403 || error.response.status === 400) {
             alert("This user doesn't exist. Please sign up first!");
           }
         });

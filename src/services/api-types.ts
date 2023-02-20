@@ -14,3 +14,8 @@ export type userLog = {
   email: string
   password: string
 }
+
+export type eventData = {
+  description: string
+  dayOfWeek: string
+}

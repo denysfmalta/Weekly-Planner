@@ -44,3 +44,10 @@ export type responseProps = {
   daysOfWeek: string;
   createdAt: string;
 };
+
+export type BoardProps = {
+  events: responseProps[]
+  setEvents: (value: responseProps[]) => void
+  daysOfWeek: string
+  setDaysOfWeek: (value: string) => void
+}

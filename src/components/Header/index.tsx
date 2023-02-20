@@ -4,12 +4,20 @@ import * as S from "./style";
 import cloudy from "../../assets/cloudy.svg";
 import logo from "../../assets/logo-dark.svg";
 import arrow from "../../assets/arrow-left.svg";
+import { useNavigate } from "react-router-dom";
+
 
 export const Header = () => {
   const [time, setTime] = React.useState("");
   const [date, setDate] = React.useState("");
+  const navigate = useNavigate()
 
+
+  function handleClick() {
+    navigate("/");
+    }
   React.useEffect(() => {
+    
     setDate(getFullDate());
     setInterval(() => {
       setTime(getHour());
@@ -41,8 +49,8 @@ export const Header = () => {
         <S.LogoutContainer>
           <S.img src={logo} />
           <S.LogoutContent>
-            <S.img src={arrow} />
-            <S.LogoutButton>Logout</S.LogoutButton>
+            <S.img onClick={handleClick} src={arrow} />
+            <S.LogoutButton onClick={handleClick}>Logout</S.LogoutButton>
           </S.LogoutContent>
         </S.LogoutContainer>
       </S.Nav>

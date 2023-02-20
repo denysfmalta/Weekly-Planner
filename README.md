@@ -1,3 +1,5 @@
-# ATTENTION #
-
-This project is at it's current state incomplete. It lacks the router navigation linked to the user validation and the most part of the last page, the planner. I'll keep working on it in the following weeks.
+# Weekly-Planner
+## How to run this project 
+### 1 - Clone this repository
+### 2 - Install the required dependencies at the directory in which you clone, by executin "npm install" in the terminal.
+### 3 - Run "npm start" to start the web application in the localhost.
